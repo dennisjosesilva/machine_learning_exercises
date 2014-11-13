@@ -1,4 +1,30 @@
 import numpy as np
+from abc import ABCMeta, abstractmethod
+
+class Classifier:
+	__metaclass__ = ABCMeta
+		
+	@abstractmethod
+	def classify(self, x):
+		pass
+	
+	
+class PerceptronClassifier(Classifier):
+	def __init__(self, w_vector):
+		self.w = w_vector
+	
+	def _calculate_y_from_dot_product_calculated(self, y_calculated):
+		if y_calculated < 0:
+			return 0
+		else: 
+			return 1
+	
+	def classify(self, x):
+		x_append_1 = [1, x]
+		y_calculated = np.dot(x_append_1, self.w)
+		print(y_calculated)
+		return self._calculate_y_from_dot_product_calculated(y_calculated)
+	
 
 class Perceptron:	
 	def __init__(self, training_data):
@@ -60,4 +86,4 @@ class Perceptron:
 			print("factor = w = " + str(p) + "itr = " + str(iteration_count))
 			#input()
 
-		return iteration_count
+		return PerceptronClassifier(w)
