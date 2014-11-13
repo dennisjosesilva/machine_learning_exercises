@@ -22,14 +22,11 @@ class PerceptronClassifier(Classifier):
 	def classify(self, x):
 		x_append_1 = [1, x]
 		y_calculated = np.dot(x_append_1, self.w)
-		print(y_calculated)
+		#print(y_calculated)
 		return self._calculate_y_from_dot_product_calculated(y_calculated)
 	
 
-class Perceptron:	
-	def __init__(self, training_data):
-		self.training_data = self._init_training_data(training_data)
-
+class PerceptronGenerator:	
 	def _init_training_data(self, training_data):
 		pla_training_data = []
 		for item in training_data:
@@ -72,18 +69,20 @@ class Perceptron:
 
 		return None
 
-	def run(self):
+	def generate(self, training_data):
 		w = np.zeros(2)
 		iteration_count = 0
-
-		while self._calculate_error(self.training_data ,w) > 0.0:			
+		
+		pla_training_data = self._init_training_data(training_data)
+		
+		while self._calculate_error(pla_training_data ,w) > 0.0:			
 			iteration_count += 1
-			p = self._pick_a_misclassified_point(self.training_data, w)
+			p = self._pick_a_misclassified_point(pla_training_data, w)
 			factor = [p[1] * x for x in p[0]]
 			
 			w += factor
 
-			print("factor = w = " + str(p) + "itr = " + str(iteration_count))
+			#print("factor = w = " + str(p) + "itr = " + str(iteration_count))
 			#input()
 
 		return PerceptronClassifier(w)
