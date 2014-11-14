@@ -19,11 +19,11 @@ def generate_samples(samples_number, bound, threshold, ini, end):
 
 def is_valued_1(threshold, value_test, bound):
 	if bound == BoundEnum.LOWER_BOUND:
-		if value_test <= threshold:
+		if value_test >= threshold:
 			return True
 		return False
 	else:
-		if value_test >= threshold:
+		if value_test <= threshold:
 			return True
 		return False
 			
@@ -54,13 +54,13 @@ def main(argv):
 			print("Sintax: ")
 			print("samples_generator.py -s <sample_number> -t <threshold> -i <ini> -e <end> -o <output_file>")
 		elif opt in ("-s", "--samples-number"):
-			sample_number = arg
+			sample_number = int(arg)
 		elif opt in ("-t", "--threshold"):
 			threshold = float(arg)
 		elif opt in ("-i", "--ini"):
-			ini = arg
+			ini = float(arg)
 		elif opt in ("-e", "--end"):
-			end = arg
+			end = float(arg)
 		elif opt in ("-o", "--output-file"):
 			output_file = arg
 		elif opt in ("-b", "--bound"):

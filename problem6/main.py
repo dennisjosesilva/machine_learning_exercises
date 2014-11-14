@@ -31,7 +31,7 @@ def main(argv):
 		print("Entre com o valor a ser classificado (use CTRL+C para sair): ")
 		x = input()
 		
-		y = classifier.classify(x)
+		y = classifier.classify(float(x))
 		print("classe calculada pelo perceptron: " + str(y))
 
 if __name__ == '__main__':

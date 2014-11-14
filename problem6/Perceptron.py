@@ -20,7 +20,11 @@ class PerceptronClassifier(Classifier):
 			return 1
 	
 	def classify(self, x):
-		x_append_1 = [1, x]
+		x_append_1 = [1.0, x]
+
+		print(x_append_1)
+		print(self.w)
+
 		y_calculated = np.dot(x_append_1, self.w)
 		#print(y_calculated)
 		return self._calculate_y_from_dot_product_calculated(y_calculated)

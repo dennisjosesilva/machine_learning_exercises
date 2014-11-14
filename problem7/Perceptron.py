@@ -86,3 +86,17 @@ class PerceptronGenerator:
 			#input()
 
 		return PerceptronClassifier(w)
+
+
+class ClassifierMergerWithAllTruth(Classifier):
+	def __init__(self, classifiers):
+		self.classifiers = classifiers
+		
+	def classify(self, x):
+		for c in self.classifiers:
+			if c.classify(x) !=  1:
+				return 0
+
+		return 1
+
+
