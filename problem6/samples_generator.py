@@ -38,13 +38,13 @@ def main(argv):
 			print("Sintax: ")
 			print("samples_generator.py -s <sample_number> -t <threshold> -i <ini> -e <end> -o <output_file>")
 		elif opt in ("-s", "--samples-number"):
-			sample_number = arg
+			sample_number = int(arg)
 		elif opt in ("-t", "--threshold"):
-			threshold = arg
+			threshold = float(arg)
 		elif opt in ("-i", "--ini"):
-			ini = arg
+			ini = float(arg)
 		elif opt in ("-e", "--end"):
-			end = arg
+			end = float(arg)
 		elif opt in ("-o", "--output-file"):
 			output_file = arg
 		

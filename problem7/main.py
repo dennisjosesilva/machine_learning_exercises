@@ -21,7 +21,7 @@ def main(argv):
 			print("samples_generator.py -l <lower_tranning_data_file> -u <upper_training_data_file>")
 		elif opt in ("-l", "--lower_bound_tranning_data_file"):
 			lower_training_data_file = arg
-		elif opt in ("-u", "--upper_training_data_file" ):
+		elif opt in ("-u", "--upper_bound_tranning_data_file" ):
 			upper_training_data_file = arg
 	
 	
